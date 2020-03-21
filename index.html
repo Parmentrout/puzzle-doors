@@ -5,7 +5,6 @@
         <title>Locked In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/x-icon" href="favicon.ico">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
         <link href="./styles.css" rel="stylesheet">
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -27,8 +26,14 @@
             <div class="row">
               <div class="col-sm">
                 <div class="backDoor">
-                    <div class="door" id="door1">  
+                    <div class="door" id="door1"> 
+                        <img src="skeleton-key-png-3-transparent.png" class="img img-fluid key">
                     </div>
+                    <span class="keycode">5</span>
+                  </div>
+                  <div class="form-inline mt-sm-2">
+                    <input id="door1-code" type="text" class="form-control mr-sm-2" placeholder="Door 1 Password">
+                    <button id="door1-form" type="submit" class="btn btn-secondary"><span class="target">&target;</span></button>
                   </div>
               </div>
               <div class="col-sm">
@@ -36,12 +41,20 @@
                     <div class="door" id="door2">  
                     </div>
                   </div>
+                  <form class="form-inline mt-sm-2">
+                    <input type="text" class="form-control mr-sm-2" placeholder="Door 2 Password">
+                    <button type="submit" class="btn btn-secondary"><span class="target">&target;</span></button>
+                  </form>
               </div>
               <div class="col-sm">
                 <div class="backDoor">
                     <div class="door" id="door3">  
                     </div>
                   </div>
+                  <form class="form-inline mt-sm-2">
+                    <input type="text" class="form-control mr-sm-2" placeholder="Door 3 Password">
+                    <button type="submit" class="btn btn-secondary"><span class="target">&target;</span></button>
+                  </form>
               </div>
             </div>
 

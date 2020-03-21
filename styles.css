@@ -32,3 +32,19 @@
   /*prespectiv creates the door open effect*/
   transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
 }
+
+.key {
+  transform: rotate(90deg);
+  margin-top: 120px;
+}
+
+.target {
+  /*font-size: 38px;*/
+}
+
+.keycode {
+  font-size: 38px;
+  margin-left: auto;
+  margin-right:auto;
+  margin-top: 100px;;
+}
