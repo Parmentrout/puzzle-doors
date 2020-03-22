@@ -1,5 +1,5 @@
 $(() => {
-
+    hideErrors();
     // If you are reading this, it is cheating.  I'm not mad, just disappointed...
     const door1Password = 'pantry';
 
@@ -9,24 +9,44 @@ $(() => {
 
     $('#door1-form').click((event) => {
       event.preventDefault();
-      let password = $('#door1-code').first().val().toLowerCase();
+      openDoor(1);
+    });
+
+    function openDoor(doorNumber) {
+      let password = $(`#door${doorNumber}-code`).first().val().toLowerCase();
 
       console.log(password);
       if (password === door1Password) {
-        toggleDoor(document.querySelector("#door1"));
+        toggleDoor(document.querySelector(`#door${doorNumber}`));
+        hideError(doorNumber);
+      } else {
+        showError(doorNumber);
       }
-    });
+    }
 
-    $('#door2-form').submit((event) => {
-      event.preventDefault();
-      let password = $('#door2-form').first().val().toLowerCase();
+    function showError(door) {
+      $(`#door${door}Error`).show();
+    }
 
-      if (password === "test") {
-        toggleDoor(document.querySelector("#door2"));
-      }
-      console.log(password);
-    });
+    function hideError(door) {
+      $(`#door${door}Error`).hide();
+    }
+
+    function hideErrors() {
+      $('#door1Error').hide();
+      $('#door2Error').hide();
+      $('#door3Error').hide();
+      $('#door4Error').hide();
+      $('#door5Error').hide();
+      $('#door6Error').hide();
+      $('#finalError').hide();
+    }
+    
+    function storeResults(door) {
+      //let 
+    }
+
+    function getOpenDoors() {
+      localStorage.getItem('doorSolved');
+    }
 })
-
-
-//https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=96UBSEFHB6NA2&currency_code=USD&source=url
