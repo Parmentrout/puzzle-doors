@@ -1,20 +1,10 @@
 $(() => {
-    let door1 = document.querySelector("#door1");
-    //door1.addEventListener("click", toggleDoor);
 
-    let door2 = document.querySelector("#door2");
-   // door2.addEventListener("click", toggleDoor);
+    // If you are reading this, it is cheating.  I'm not mad, just disappointed...
+    const door1Password = 'pantry';
 
-    let door3 = document.querySelector("#door3");
-    door3.addEventListener("click", toggleDoor);
-    
     function toggleDoor(element) {
       element.classList.toggle("doorOpen");
-    }
-
-    function openDoor(door) {
-      console.log(door);
-      //toggleDoor(document.querySelector("#door1"));
     }
 
     $('#door1-form').click((event) => {
@@ -22,8 +12,7 @@ $(() => {
       let password = $('#door1-code').first().val().toLowerCase();
 
       console.log(password);
-      
-      if (password === "test") {
+      if (password === door1Password) {
         toggleDoor(document.querySelector("#door1"));
       }
     });
@@ -38,3 +27,6 @@ $(() => {
       console.log(password);
     });
 })
+
+
+//https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=96UBSEFHB6NA2&currency_code=USD&source=url
