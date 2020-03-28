@@ -1,22 +1,50 @@
 $(() => {
     hideErrors();
+    
     // If you are reading this, it is cheating.  I'm not mad, just disappointed...
-    const door1Password = 'pantry';
+    const doorData = [{
+      number: 1,
+      password: 'pantry'
+    },
+    {
+      number: 2,
+      password: 'alehljelakhef'
+    },
+    {
+      number: 3,
+      password: 'kitchen'
+    },
+    {
+      number: 4,
+      password: 'alehfleahl'
+    },
+    {
+      number: 5,
+      password: 'alfeyhleljllhael'
+    },
+    {
+      number: 6,
+      password: 'alfehlafelhale'
+    }];
 
     function toggleDoor(element) {
       element.classList.toggle("doorOpen");
     }
 
-    $('#door1-form').click((event) => {
-      event.preventDefault();
-      openDoor(1);
+    for (let door of doorData) {
+      $(`#door${door.number}-form`).click((event) => {
+        openDoor(door.number, door.password);
+      });
+    }
+
+    $('final-form').click((event) => {
+      openDoor(7, '86876868765');
     });
 
-    function openDoor(doorNumber) {
+    function openDoor(doorNumber, doorPassword) {
       let password = $(`#door${doorNumber}-code`).first().val().toLowerCase();
 
-      console.log(password);
-      if (password === door1Password) {
+      if (password === doorPassword) {
         toggleDoor(document.querySelector(`#door${doorNumber}`));
         hideError(doorNumber);
       } else {
@@ -40,13 +68,5 @@ $(() => {
       $('#door5Error').hide();
       $('#door6Error').hide();
       $('#finalError').hide();
-    }
-    
-    function storeResults(door) {
-      //let 
-    }
-
-    function getOpenDoors() {
-      localStorage.getItem('doorSolved');
     }
 })
