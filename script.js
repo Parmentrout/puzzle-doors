@@ -1,6 +1,6 @@
 $(() => {
     hideErrors();
-    
+    let hasFinalSolved = false;
     // If you are reading this, it is cheating.  I'm not mad, just disappointed...
     const doorData = [{
       number: 1,
@@ -20,11 +20,11 @@ $(() => {
     },
     {
       number: 5,
-      password: 'alfeyhleljllhael'
+      password: 'dgdgdrgdgdgfdgfdgfd'
     },
     {
       number: 6,
-      password: 'alfehlafelhale'
+      password: 'den'
     }];
 
     function toggleDoor(element) {
@@ -37,14 +37,25 @@ $(() => {
       });
     }
 
-    $('final-form').click((event) => {
-      openDoor(7, '86876868765');
+    $('#final-form').click((event) => {
+      let password = $('#final-code').first().val().toLowerCase();
+      console.log(password);
+      if (password == "270985") {
+        toggleDoor(document.querySelector('#door7'));
+        if (!hasFinalSolved) $('#myModal').modal();
+        hasFinalSolved = true;
+        hideError(7);
+      } else {
+        showError(7);
+      }
+
     });
 
     function openDoor(doorNumber, doorPassword) {
       let password = $(`#door${doorNumber}-code`).first().val().toLowerCase();
 
       if (password === doorPassword) {
+        console.log(password + ' ' + doorPassword);
         toggleDoor(document.querySelector(`#door${doorNumber}`));
         hideError(doorNumber);
       } else {
@@ -67,6 +78,6 @@ $(() => {
       $('#door4Error').hide();
       $('#door5Error').hide();
       $('#door6Error').hide();
-      $('#finalError').hide();
+      $('#door7Error').hide();
     }
 })
