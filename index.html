@@ -11,8 +11,25 @@
     </head>
     <body>
         <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1"><img class="nav-icon" src="icon.png"></span>
+            <span class="navbar-brand mb-0 h1"><img id="key-logo" class="nav-icon" src="icon.png"></span>
         </nav>
+        <div id="secretModal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <img class="key secret-key img img-fluid" src="door5.png">
+                <img class="key secret-key img img-fluid" src="door3.png">
+                <img class="key secret-key img img-fluid" src="door6.png">
+                <img class="key secret-key img img-fluid" src="door4.png">
+                <img class="key secret-key img img-fluid" src="door2.png">
+                <img class="key secret-key img img-fluid" src="door1.png">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
         <div class="container">
             <div class="jumbotron">
                 <h1>Locked In! An Armentrout Mystery...</h1>
@@ -155,7 +172,7 @@
             <div class="col">
               <div class="backDoor">
                 <div class="door" id="door7"> 
-                    <img src="icon.png" class="img img-fluid key">
+                    <img src="icon.png" class="img img-fluid final-key">
                 </div>
                 <img class="img img-fluid center-block gimme-space-top" src="dancing_wizard.webp">
               </div>
@@ -164,6 +181,20 @@
                 <button id="final-form" type="submit" class="btn btn-sm btn-secondary"><span class="target">&target;</span></button>
               </div>
               <p id="door7Error" class="text-center error-message mt-sm-1">Incorrect password!</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="container-fluid">
+          <div class="row mt-4 mb-4">
+            <div class="col-md"></div>
+            <div class="col-md"></div>
+            <div class = "col-md">
+              <br>
+              <p class="pull-right footer-text">Need a fun virtual activity for your company?  <br>
+                Contact us at <a href="mailto:armentroutmysteries@gmail.com">armentroutmysteries@gmail.com</a> 
+                for more information.
             </div>
           </div>
         </div>

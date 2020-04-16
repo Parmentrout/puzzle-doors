@@ -33,9 +33,22 @@
   transform: perspective(1200px) translateZ(0px) translateX(0px) translateY(0px) rotateY(-105deg);
 }
 
+.footer-text {
+  float: right;
+  font-weight: bold;
+  font-size: 16px;
+}
+
 .key {
   transform: rotate(90deg);
   margin-top: 120px;
+}
+
+.final-key {
+  max-width: 250px !important;
+  transform: rotate(90deg);
+  margin-top: 60px;
+  margin-left: -30px;
 }
 
 .key-input {
@@ -59,6 +72,25 @@
 .gimme-space-top {
   margin-top: 25px;
 }
+
+.secret-key {
+  max-height: 30px;
+  margin-left: -50px;
+  margin-top: 75px;
+  margin-bottom: 50px;
+}
+
+@keyframes goldPulse {
+  from { background-color: #fc9200; -webkit-box-shadow: 0 0 9px #333; }
+  50% { background-color: #ffb515; -webkit-box-shadow: 0 0 28px #ffb515; }
+  to { background-color: #fc9200; -webkit-box-shadow: 0 0 9px #333; }
+}
+
+/* #key-logo {
+  animation-name: goldPulse;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+} */
 
 .confetti {
   width: 15px;

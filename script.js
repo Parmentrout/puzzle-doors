@@ -8,7 +8,7 @@ $(() => {
     },
     {
       number: 2,
-      password: 'alehljelakhef'
+      password: 'guest room'
     },
     {
       number: 3,
@@ -16,11 +16,11 @@ $(() => {
     },
     {
       number: 4,
-      password: 'alehfleahl'
+      password: 'bathroom'
     },
     {
       number: 5,
-      password: 'dgdgdrgdgdgfdgfdgfd'
+      password: 'front door'
     },
     {
       number: 6,
@@ -40,7 +40,7 @@ $(() => {
     $('#final-form').click((event) => {
       let password = $('#final-code').first().val().toLowerCase();
       console.log(password);
-      if (password == "270985") {
+      if (password == "270985") { // doors 5, 3, 6, 4, 2, 1
         toggleDoor(document.querySelector('#door7'));
         if (!hasFinalSolved) $('#myModal').modal();
         hasFinalSolved = true;
@@ -50,6 +50,10 @@ $(() => {
       }
 
     });
+
+    $('#key-logo').click(() => {
+      $('#secretModal').modal();
+    })
 
     function openDoor(doorNumber, doorPassword) {
       let password = $(`#door${doorNumber}-code`).first().val().toLowerCase();
