@@ -16,11 +16,11 @@ $(() => {
     },
     {
       number: 4,
-      password: 'bathroom'
+      password: 'bedroom'
     },
     {
       number: 5,
-      password: 'front door'
+      password: 'bathroom'
     },
     {
       number: 6,

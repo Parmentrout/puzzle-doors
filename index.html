@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <!-- Global site tag (gtag.js) - Google Analytics -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=UA-163970888-2"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-163970888-2');
+      </script>
+
         <meta charset="utf-8">
         <title>Locked In</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -14,162 +24,14 @@
             <span class="navbar-brand mb-0 h1"><img id="key-logo" class="nav-icon" src="icon.png"></span>
             <span class="pull-right"><a class="text-white" data-toggle="modal" href="#" data-target="#helpModal">Need a hint?</a></span>
         </nav>
-        <!-- Helper Modal -->
-        <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">It's the Hint Section!</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-               <!-- Accordian hints in here -->
-               <div class="accordion" id="accordionExample">
-                <div class="card">
-                  <div class="card-header" id="headingOne">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        <Caption>I found the clue, but the door isn't opening?</Caption>
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Your clue came with a key... Sure you have the right door?
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingTwo">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Week 1
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Notice the colored squares, after finishing the puzzle, could they spell out a word?
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingThree">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                        Week 2
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Having trouble reading morse code!?  Try writing it down using: "." for quick, "_" for long, and separate symbols with "/"
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingFour">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                        Week 3
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Having trouble keeping it straight? Cross the squares you know are empty and fill in the ones that are correct.  Makes it easier to track :)
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingFive">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                        Week 4
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Try writing the letters top to bottom in the order of the colors looking for letter patterns...
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingSix">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                        Week 5
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Sorry you are having trouble with this! Send us a message at armentroutmysteries@gmail.com
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingSeven">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
-                        Week 6
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Sorry you are having trouble with this! Send us a message at armentroutmysteries@gmail.com
-                    </div>
-                  </div>
-                </div>
-                <div class="card">
-                  <div class="card-header" id="headingEight">
-                    <h5 class="mb-0">
-                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
-                        Still having trouble?
-                      </button>
-                    </h5>
-                  </div>
-                  <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
-                    <div class="card-body">
-                      Send us a message at armentroutmysteries@gmail.com
-                    </div>
-                  </div>
-                </div>
-              </div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div id="secretModal" class="modal" tabindex="-1" role="dialog">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-body text-center">
-                <img class="key secret-key img img-fluid" src="door5.png">
-                <img class="key secret-key img img-fluid" src="door3.png">
-                <img class="key secret-key img img-fluid" src="door6.png">
-                <img class="key secret-key img img-fluid" src="door4.png">
-                <img class="key secret-key img img-fluid" src="door2.png">
-                <img class="key secret-key img img-fluid" src="door1.png">
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              </div>
-            </div>
-          </div>
-        </div>
+      
         <div class="container">
             <div class="jumbotron">
                 <h1>Locked In! An Armentrout Mystery...</h1>
                 <p>After a huge rager, you wake up to find you are now locked in your house!   
-                    Luckily, a magician will send you weekly clues to escape.  Each week will open a different door 
+                    Luckily, a wizard will send you weekly clues to escape.  Each week will open a different door 
                     and when they are all open you can use the keypad below to escape!</p>
+                <p class="pull-right text-muted">Brought to you by <a href="https://armentroutmysteries.com">Armentrout Mysteries</a></p>
             </div>
         </div>
 
@@ -333,6 +195,175 @@
           </div>
         </div>
 
+        <!-- Here be lots of modals! -->
+
+        <!-- Secret here -->
+        <div id="secretModal" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body text-center">
+                <img class="key secret-key img img-fluid" src="door5.png">
+                <img class="key secret-key img img-fluid" src="door3.png">
+                <img class="key secret-key img img-fluid" src="door6.png">
+                <img class="key secret-key img img-fluid" src="door4.png">
+                <img class="key secret-key img img-fluid" src="door2.png">
+                <img class="key secret-key img img-fluid" src="door1.png">
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+         <!-- Helper Modal -->
+         <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">It's the Hint Section!</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+
+               <!-- Accordian hints in here -->
+               <div class="accordion" id="accordionExample">
+                <div class="card">
+                  <div class="card-header" id="headingOne">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <Caption>I found the clue, but the door isn't opening?</Caption>
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Your clue came with a key... Sure you have the right door?
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingTwo">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        Week 1
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Notice the colored squares, after finishing the puzzle, could they spell out a word?
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingThree">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Week 2
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Having trouble translating morse code!?  Try writing it down using: "." for quick, "_" for long, and separate symbols with "/"
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingFour">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        Week 3
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Having trouble keeping it straight? Cross the squares you know are empty and fill in the ones that are correct.  Makes it easier to track :)
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingFive">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        Week 4
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Try writing the letters top to bottom in the order of the colors looking for letter patterns...
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingSix">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        Week 5
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Sorry you are having trouble with this! Send us a message at armentroutmysteries@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingSeven">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        Week 6
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Sorry you are having trouble with this! Send us a message at armentroutmysteries@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingEight">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        Still having trouble?
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Send us a message at armentroutmysteries@gmail.com
+                    </div>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-header" id="headingNine">
+                    <h5 class="mb-0">
+                      <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseNine">
+                        Not Getting Emails?
+                      </button>
+                    </h5>
+                  </div>
+                  <div id="collapseNine" class="collapse" aria-labelledby="headingNine" data-parent="#accordionExample">
+                    <div class="card-body">
+                      Check your spam folder!  Occassionally Google has been marking our emails incorrectly, don't worry I'm working on a spell to fix it
+                    </div>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
