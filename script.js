@@ -41,6 +41,7 @@ $(() => {
       let password = $('#final-code').first().val().toLowerCase();
       console.log(password);
       if (password == "270985") { // doors 5, 3, 6, 4, 2, 1
+        closeAllDoorsOnFinal();
         toggleDoor(document.querySelector('#door7'));
         if (!hasFinalSolved) $('#myModal').modal();
         hasFinalSolved = true;
@@ -83,5 +84,14 @@ $(() => {
       $('#door5Error').hide();
       $('#door6Error').hide();
       $('#door7Error').hide();
+    }
+
+    function closeAllDoorsOnFinal() {
+      for (let door of doorData) {
+        const isOpen = $(`#door${door.number}`).hasClass('doorOpen');
+        if (isOpen) {
+          toggleDoor(document.querySelector(`#door${door.number}`));
+        }
+      }
     }
 })
