@@ -1,9 +1,16 @@
-/* body {
-  background-color: darkslategrey !important;
-} */
+body {
+  background: rgb(240,233,234);
+  background: linear-gradient(90deg, rgba(240,233,234,1) 0%, rgba(201,195,197,1) 100%);
+}
 
 .nav-icon {
   max-height: 40px;;
+}
+
+.extra-jumbo {
+  background-color: transparent !important;
+  color: #343a40 !important;
+  font-weight: bold;
 }
 
 .backDoor
