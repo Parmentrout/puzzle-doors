@@ -1,6 +1,48 @@
+// AWS.config.update({
+//   region: "us-east-1",
+//   accessKeyId: "AKIAWHNPJTYWOWANCD6V",
+//   secretAccessKey: "*"
+// });
+AWS.config.region = 'us-east-1';
+AWS.config.credentials = new AWS.CognitoIdentityCredentials({
+  IdentityPoolId: 'us-east-1:687b1ef2-20a7-4a7b-908a-e23815ac0c87'
+})
+const lambda = new AWS.Lambda({apiVersion: '2015-03-31'});
+
 $(() => {
     hideErrors();
     let hasFinalSolved = false;
+
+    $('#tester').click(e => {
+    //   var params = {
+    //     TableName :"locked-in-session",
+    //     Item:{
+    //         "email": "p@a.com",
+    //         "message": "Your face"
+    //     }
+    // };
+    //   docClient.put(params, function(err, data) {
+    //     if (err) {
+    //         console.error(JSON.stringify(err))
+    //     } else {
+    //       console.log(JSON.stringify(data))
+
+    //     }
+    // });
+    var params = {
+      FunctionName: 'mystery-results-put', // the lambda function we are going to invoke
+      InvocationType: 'RequestResponse',
+      LogType: 'Tail',
+      Payload: '{ "name" : "Alex" }'
+    };
+    lambda.invoke(params, function(err, data) {
+      if (err) {
+        console.error(err);
+      } else {
+       console.log('Lambda_B said '+ data.Payload);
+      }
+    })
+    });
     // If you are reading this, it is cheating.  I'm not mad, just disappointed...
     const doorData = [{
       number: 1,
@@ -36,7 +78,6 @@ $(() => {
         openDoor(door.number, door.password);
       });
     }
-
     $('#final-form').click((event) => {
       let password = $('#final-code').first().val().toLowerCase();
       console.log(password);
