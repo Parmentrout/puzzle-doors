@@ -1,48 +1,40 @@
-// AWS.config.update({
-//   region: "us-east-1",
-//   accessKeyId: "AKIAWHNPJTYWOWANCD6V",
-//   secretAccessKey: "*"
-// });
 AWS.config.region = 'us-east-1';
 AWS.config.credentials = new AWS.CognitoIdentityCredentials({
   IdentityPoolId: 'us-east-1:687b1ef2-20a7-4a7b-908a-e23815ac0c87'
 })
 const lambda = new AWS.Lambda({apiVersion: '2015-03-31'});
-
+   
+const params = {
+  TableName: "mystery-results",
+  Item: event
+};
+const sessionKey = 'lockedInMystery';
 $(() => {
     hideErrors();
     let hasFinalSolved = false;
 
-    $('#tester').click(e => {
-    //   var params = {
-    //     TableName :"locked-in-session",
-    //     Item:{
-    //         "email": "p@a.com",
-    //         "message": "Your face"
-    //     }
-    // };
-    //   docClient.put(params, function(err, data) {
-    //     if (err) {
-    //         console.error(JSON.stringify(err))
-    //     } else {
-    //       console.log(JSON.stringify(data))
+    let sessionData = getSessionData();
+    if (!sessionData) {
+      $('#sessionSubmit').click((event) => {
+        const email = $('#emailInput').val();
+        const company = $('#companyInput').val();
+        const optInInput = $('#optInInput').prop('checked');
 
-    //     }
-    // });
-    var params = {
-      FunctionName: 'mystery-results-put', // the lambda function we are going to invoke
-      InvocationType: 'RequestResponse',
-      LogType: 'Tail',
-      Payload: '{ "name" : "Alex" }'
-    };
-    lambda.invoke(params, function(err, data) {
-      if (err) {
-        console.error(err);
-      } else {
-       console.log('Lambda_B said '+ data.Payload);
-      }
+        sessionData = {email: email, company: company, optIn: optInInput};
+        console.log(sessionData);
+        saveToSession(sessionData);
+        saveData('start');
+        $('#emailModal').modal('hide');
+      });
+
+      $('#emailModal').modal({backdrop: 'static', keyboard: false});
+    }
+    //
+    $('#clear-session').click(e => removeFromSession());
+
+    $('#successModal').on('hide.bs.modal', function () {
+      removeFromSession();
     })
-    });
     // If you are reading this, it is cheating.  I'm not mad, just disappointed...
     const doorData = [{
       number: 1,
@@ -80,13 +72,9 @@ $(() => {
     }
     $('#final-form').click((event) => {
       let password = $('#final-code').first().val().toLowerCase();
-      console.log(password);
+
       if (password == "270985") { // doors 5, 3, 6, 4, 2, 1
-        closeAllDoorsOnFinal();
-        toggleDoor(document.querySelector('#door7'));
-        if (!hasFinalSolved) $('#myModal').modal();
-        hasFinalSolved = true;
-        hideError(7);
+        solvedPuzzle();
       } else {
         showError(7);
       }
@@ -102,11 +90,24 @@ $(() => {
 
       if (password === doorPassword) {
         console.log(password + ' ' + doorPassword);
+        saveData(`Door ${doorNumber} opened successfully`)
         toggleDoor(document.querySelector(`#door${doorNumber}`));
         hideError(doorNumber);
       } else {
+        saveData(`Door ${doorNumber} attempted with invalid password: ${password}`);
         showError(doorNumber);
       }
+    }
+
+    function solvedPuzzle() {
+      closeAllDoorsOnFinal();
+      toggleDoor(document.querySelector('#door7'));
+      if (!hasFinalSolved) {
+        $('#successModal').modal();
+      }
+      saveData('stop');
+      hasFinalSolved = true;
+      hideError(7);
     }
 
     function showError(door) {
@@ -135,4 +136,64 @@ $(() => {
         }
       }
     }
+
+    function saveData(event) {
+      const payload = `{
+        "email": "${sessionData.email}",
+        "company": "${sessionData.company}",
+        "optIn": ${sessionData.optIn},
+        "eventName": "${event}",
+        "time": ${Date.now()}
+      }`;
+      
+      var params = {
+        FunctionName: 'mystery-results-put', // the lambda function we are going to invoke
+        InvocationType: 'RequestResponse',
+        Payload: payload
+      };
+      lambda.invoke(params, function(err, data) {
+        if (err) {
+          console.error(err);
+        } else {
+          console.log('Mystery Put said '+ data.Payload);
+          const json = JSON.parse(data.Payload);
+          if (json && json.data && json.data.totalTime) {
+            const totalTime = json.data.totalTime;
+            if (totalTime > 0) {
+              $('#totalTime').text(msToTime(totalTime));
+            }
+          }
+        }
+      })
+    }
+
+    // Session data
+    function getSessionData() {
+      let result = window.sessionStorage.getItem(sessionKey); 
+      if (!result) { return null; }
+      return JSON.parse(result);
+    }
+
+    function saveToSession(sessionData) {
+      removeFromSession();
+      window.sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+    }
+
+    function removeFromSession() {
+      window.sessionStorage.removeItem(sessionKey);
+    }
+
+    //Time function
+    function msToTime(duration) {
+      var milliseconds = parseInt((duration%1000)/100)
+          , seconds = parseInt((duration/1000)%60)
+          , minutes = parseInt((duration/(1000*60))%60)
+          , hours = parseInt((duration/(1000*60*60))%24);
+  
+      hours = (hours < 10) ? "0" + hours : hours;
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+  
+      return hours + ":" + minutes + ":" + seconds + "." + milliseconds;
+  }
 })
